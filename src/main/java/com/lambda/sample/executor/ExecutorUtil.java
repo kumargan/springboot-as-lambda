@@ -1,11 +1,11 @@
 package com.lambda.sample.executor;
 
 import com.lambda.sample.executor.task.WriteToCsvTask;
-import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.concurrent.*;
 
 @Slf4j

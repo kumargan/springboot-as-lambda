@@ -1,8 +1,6 @@
 package com.lambda.sample.service;
 
 import com.lambda.sample.beans.TempBean;
-import com.lambda.sample.executor.ExecutorUtil;
-import com.lambda.sample.executor.task.WriteToCsvTask;
 import com.lambda.sample.jdbc.repository.TestRepository;
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.StatefulBeanToCsv;
@@ -15,10 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Future;
 
 @Slf4j
 @Component
