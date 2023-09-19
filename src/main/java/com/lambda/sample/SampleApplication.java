@@ -4,6 +4,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.ScheduledEvent;
 import com.lambda.sample.service.FileService;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -14,6 +15,9 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import java.util.TimeZone;
+
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -29,6 +33,11 @@ public class SampleApplication implements RequestHandler<ScheduledEvent, String>
 
     @Autowired
     FileService fileService;
+
+    @PostConstruct
+    public void setLambdaTimeZone(){
+        TimeZone.setDefault(TimeZone.getTimeZone("Asia/Calcutta"));
+    }
 
     @Override
     public String handleRequest(ScheduledEvent event, Context context)
